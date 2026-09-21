@@ -142,16 +142,6 @@ DOMAIN_001  DOMAIN  hmac:3f9a…  api.redacted.com  HTTP Response  body html scr
 
 Original values are never stored or logged. Fingerprints are HMAC-SHA256 values keyed with a secret kept in your Burp user settings. A plain SHA-256 of a domain name is easy to reverse by hashing candidate domains, which is why a keyed HMAC is used.
 
-## Verifying the output
-
-Don't rely only on the extension's own verdict. Copy the AI-safe version of a batch of history items and search it with an independent tool:
-
-```bash
-grep -ci 'nday' out.txt    # expect 0
-```
-
-The **Preview** tab is useful for negative tests too. Input such as `%6Eday.blog` or `n&#100;ay.blog` must come back as **BLOCKED: LEAKAGE**.
-
 ## Known limitations
 
 - Burp's built-in AI and other extensions are out of reach (see above).
